@@ -29,7 +29,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -70,9 +69,11 @@
 			this.statusStrip1.Size = new System.Drawing.Size(362, 22);
 			this.statusStrip1.TabIndex = 4;
 			this.statusStrip1.Text = "statusStrip1";
+			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripStatusLabel1 });
 			// 
 			// toolStripStatusLabel1
 			// 
+			this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
 			this.toolStripStatusLabel1.Size = new System.Drawing.Size(12, 17);
 			this.toolStripStatusLabel1.Text = "-";
@@ -93,8 +94,6 @@
 			this.TransparencyKey = System.Drawing.SystemColors.Desktop;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.Form1_Load);
-			this.statusStrip1.ResumeLayout(false);
-			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
