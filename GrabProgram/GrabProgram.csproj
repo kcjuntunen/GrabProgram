@@ -26,7 +26,7 @@
     <ProductName>Amstore Grab Program</ProductName>
     <PublisherName>Amstore Corp.</PublisherName>
     <SuiteName>Amstore Tools</SuiteName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

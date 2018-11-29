@@ -29,6 +29,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -56,9 +57,10 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(13, 41);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(10, 13);
+			this.label1.Size = new System.Drawing.Size(13, 16);
 			this.label1.TabIndex = 3;
 			this.label1.Text = "-";
 			// 
@@ -91,9 +93,10 @@
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "Copy Program";
-			this.TransparencyKey = System.Drawing.SystemColors.Desktop;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.Form1_Load);
+			this.statusStrip1.ResumeLayout(false);
+			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
