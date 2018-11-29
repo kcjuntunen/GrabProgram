@@ -159,7 +159,11 @@ namespace GrabProgram {
 			OpenFileDialog ofd = new OpenFileDialog();
 			ofd.InitialDirectory = v_.Path;
 			ofd.Filter = @"Machine Programs (*.CNC)|*.CNC";
-			ofd.ShowDialog(this);
+			DialogResult dr = ofd.ShowDialog(this);
+
+			if (dr == DialogResult.Cancel) {
+				return;
+			}
 
 			CopySource = ofd.FileName;
 			FileInfo f = new FileInfo(CopySource);
