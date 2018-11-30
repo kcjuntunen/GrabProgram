@@ -104,12 +104,12 @@ namespace GrabProgram {
 					@"COPY PROGRAM");
 				if (aff > 0) {
 					msg_ += "\n" + @"This error has been reported.";
-					MessageBox.Show(msg_, @"Redbrick Error",
+					MessageBox.Show(msg_, @"Error",
 						MessageBoxButtons.OK,
 						MessageBoxIcon.Error);
 				} else {
 					msg_ += "\n" + @"This error failed to be reported.";
-					MessageBox.Show(msg_, @"Redbrick Error",
+					MessageBox.Show(msg_, @"Error",
 						MessageBoxButtons.OK,
 						MessageBoxIcon.Error);
 				}
@@ -140,10 +140,10 @@ namespace GrabProgram {
 					comboBox1.DisplayMember = @"Name";
 				} catch (FileNotFoundException fnfe) {
 					if (!fnfe.Message.Contains(@"GrabProgram.XmlSerializers")) {
-						MessageBox.Show(fnfe.Message);
+						ProcessError(fnfe, false);
 					}
 				} catch (Exception ex) {
-					MessageBox.Show(ex.Message);
+					ProcessError(ex, false);
 				}
 			}
 			initialated = true;
