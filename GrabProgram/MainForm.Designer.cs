@@ -29,13 +29,14 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.label2 = new System.Windows.Forms.Label();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button1
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(275, 82);
+			this.button1.Location = new System.Drawing.Point(349, 85);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 0;
@@ -50,7 +51,7 @@
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Location = new System.Drawing.Point(13, 13);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(337, 21);
+			this.comboBox1.Size = new System.Drawing.Size(411, 21);
 			this.comboBox1.TabIndex = 2;
 			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
@@ -66,12 +67,13 @@
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 108);
+			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+			this.statusStrip1.Location = new System.Drawing.Point(0, 111);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(362, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(436, 22);
 			this.statusStrip1.TabIndex = 4;
 			this.statusStrip1.Text = "statusStrip1";
-			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripStatusLabel1 });
 			// 
 			// toolStripStatusLabel1
 			// 
@@ -80,11 +82,22 @@
 			this.toolStripStatusLabel1.Size = new System.Drawing.Size(12, 17);
 			this.toolStripStatusLabel1.Text = "-";
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(16, 61);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(2, 15);
+			this.label2.TabIndex = 5;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(362, 130);
+			this.ClientSize = new System.Drawing.Size(436, 133);
+			this.Controls.Add(this.label2);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.comboBox1);
@@ -109,6 +122,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+		private System.Windows.Forms.Label label2;
 	}
 }
 

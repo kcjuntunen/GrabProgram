@@ -5,7 +5,8 @@ using System.Xml.Serialization;
 
 namespace GrabProgram {
 	public partial class MainForm : Form {
-		bool initialated = false;
+		private bool initialated = false;
+		private SanityChecker sc;
 
 		public MainForm() {
 			InitializeComponent();
@@ -116,7 +117,12 @@ namespace GrabProgram {
 		}
 
 		private void button1_Click(object sender, EventArgs e) {
-			DoCopy();
+			if (sc.OK) {
+				DoCopy();
+			} else {
+				MessageBox.Show(string.Format("This program appears to be made for `{0}'.\n\n" +
+					"First line says:\n{1}", sc.MachNumFromFile, sc.Line));
+			}
 		}
 
 		private void Form1_Load(object sender, EventArgs e) {
@@ -169,16 +175,37 @@ namespace GrabProgram {
 			FileInfo f = new FileInfo(CopySource);
 			try {
 				CopyDestination = string.Format(@"{0}PR{1}.CNC", GetDrive().Name, v_.MachNum);
+				MachNum = v_.MachNum;
 				label1.Text = string.Format(@"{0} → {1}", f.Name, CopyDestination);
 				toolStripStatusLabel1.Text = string.Format(@"Selected `{0}'.", f.Name);
 			} catch (Exception ex) {
-				ProcessError(ex, true);
+				MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			}
+
+			sc = new SanityChecker(CopySource, MachNum);
+			try {
+				sc.Check();
+				label2.Text = sc.Line;
+				if (!sc.SuccessfullyParsed) {
+					MessageBox.Show(@"Couldn't verify that the program matches the machine.",
+						@"Warning",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Warning);
+				}
+			} catch (ArgumentNullException) {
+				MessageBox.Show(@"CNC file is empty.",
+					@"Error",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
+			} catch (Exception ex) {
+				ProcessError(ex, false);
 			}
 		}
 
 		public string CopySource { get; set; }
 		public string CopyDestination { get; set; }
 		public string ConfigLocation { get; set; }
+		public string MachNum { get; set; }
 
 		public Config.Config Config { get; set; } = new Config.Config {
 			MachineList = new Machines {
